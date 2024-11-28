@@ -25,10 +25,10 @@ class MergeSort implements SortInterface
     private function merge(array $left, array $right): array
     {
         $sorted = [];
-        $i = 0; // Pointer for the left array
-        $j = 0; // Pointer for the right array
+        $i = 0; // Left array pointer
+        $j = 0; // Right array pointer
 
-        // Merge the arrays by comparing elements
+        // Merge left & right by comparing elements
         while ($i < count($left) && $j < count($right)) {
             if ($left[$i] <= $right[$j]) {
                 $sorted[] = $left[$i];

@@ -14,6 +14,8 @@ class StatisticalCalculator
     public static function calculateMode(array $data)
     {
         $frequency = [];
+
+        // Create a hash set for storing frequencies against values
         foreach ($data as $value) {
             $key = (string)$value;
             if (!isset($frequency[$key])) {
@@ -21,14 +23,16 @@ class StatisticalCalculator
             }
             $frequency[$key]++;
         }
-    
+
+        // Get max key from the hashset
         $maxFrequency = 0;
         foreach ($frequency as $count) {
             if ($count > $maxFrequency) {
                 $maxFrequency = $count;
             }
         }
-    
+
+        // Get value against the max key
         $modes = [];
         foreach ($frequency as $value => $count) {
             if ($count === $maxFrequency) {
@@ -56,7 +60,8 @@ class StatisticalCalculator
     public static function calculateMedian(array $data)
     {
         $count = count($data);
-        if ($count % 2 === 1) {
+
+        if ($count % 2 === 1) { // If odd no of elements
             return round($data[floor($count / 2)], 2);
         } else {
             $middle1 = $data[$count / 2 - 1];
