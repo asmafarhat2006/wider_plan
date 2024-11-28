@@ -50,7 +50,7 @@ class StatisticalCalculator
             $sum += $value;
         }
 
-        return $sum;
+        return round($sum, 2);
     }
 
     public static function calculateMedian(array $data)
