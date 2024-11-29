@@ -2,13 +2,11 @@
 
 namespace App;
 
-use App\SortInterface;
-
-class MergeSort implements SortInterface
+class MergeSort
 {
     public function sort(array $data): array
     {
-        // Base case: an array of zero or one element is already sorted
+        // Base case
         if (count($data) <= 1) {
             return $data;
         }
@@ -28,7 +26,7 @@ class MergeSort implements SortInterface
         $i = 0; // Left array pointer
         $j = 0; // Right array pointer
 
-        // Merge left & right by comparing elements
+        // Compare elements of left & right and add them in an array
         while ($i < count($left) && $j < count($right)) {
             if ($left[$i] <= $right[$j]) {
                 $sorted[] = $left[$i];
